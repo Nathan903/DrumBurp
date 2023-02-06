@@ -11,6 +11,9 @@ jobs:
         uses: actions/checkout@master
       - name: "Get version number"
         run: echo "::set-env name=DB_VERSION::$(cat VERSION)"
+        env:
+              ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
       - name: Python Setup
         uses: actions/setup-python@v1
         with:
