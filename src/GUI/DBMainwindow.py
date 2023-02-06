@@ -1166,6 +1166,11 @@ class DrumBurp(QMainWindow, Ui_DrumBurpWindow):
         self.scoreScene.recolor()
 
     def checkLilypondPath(self, existing=None):
+        print(self)
+        print(existing)
+        print(self.lilyPath)
+        with open("debug-temp-drumburp.txt") as f:
+            f.write(str(existing))
         if not existing and not self.lilyPath:
             QMessageBox.information(self, "Lilypond",
                                     "Lilypond is a program for displaying music "
