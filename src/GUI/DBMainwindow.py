@@ -1167,10 +1167,11 @@ class DrumBurp(QMainWindow, Ui_DrumBurpWindow):
 
     def checkLilypondPath(self, existing=None):
         print(self)
+        print()
         print(existing)
         print(self.lilyPath)
         with open("debug-temp-drumburp.txt") as f:
-            f.write(str(existing))
+            f.write(str(existing))  
         if not existing and not self.lilyPath:
             QMessageBox.information(self, "Lilypond",
                                     "Lilypond is a program for displaying music "
@@ -1185,6 +1186,7 @@ class DrumBurp(QMainWindow, Ui_DrumBurpWindow):
         if (self.lilyPath is None
             or not os.path.exists(self.lilyPath)
                 or existing is not None):
+            print("trying to get lilypond...")
             caption = "Please select path to Lilypond executable"
             path = QFileDialog.getOpenFileName(parent=self,
                                                caption=caption,
